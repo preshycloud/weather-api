@@ -46,7 +46,8 @@ app.get('/api/hello', async (req, res) => {
         // Get weather data using environment variable
         console.log(`Fetching weather data for location: ${location}`);
         const weatherApiKey = process.env.WEATHER_API_KEY;
-        const weatherResponse = await axios.get(`http://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${location}`);
+        console.log('weather api key:' , weatherApiKey)
+        const weatherResponse = await axios.get(`https://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${location}`);
         console.log('Weather response data:', weatherResponse.data);
 
         if (!weatherResponse.data || !weatherResponse.data.current) {
